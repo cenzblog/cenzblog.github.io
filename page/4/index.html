@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;page&#x2F;4&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-http-web-request-get" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/http-web-request-get/" class="article-date">
+  <time datetime="2019-12-17T15:20:34.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/http-web-request-get/">http-web-request-get</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from<br><a href="https://cmakerhk.wordpress.com/2018/10/03/processing-web-request/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/03/processing-web-request/</a></p>
+<hr>
+<p>include the library by searching runemadsen</p>
+<p>Sample code:</p>
+<pre>//Processing Code
+import http.requests.*;
+
+GetRequest get = new GetRequest("https://httpbin.org/ip");
+get.send();
+println("Reponse Content: " + get.getContent());
+println("Reponse Content-Length Header: " + get.getHeader("Content-Length"));
+</pre>
+<p>result:</p>
+<pre>Reponse Content: {
+  "origin": "203.85.99.9"
+}
+
+Reponse Content-Length Header: 30
+</pre>
+<p>Sample code2:</p>
+<pre>/**
+ * HTTP Client. 
+ * 
+ * Starts a network client that connects to a server on port 80,
+ * sends an HTTP 1.0 GET request, and prints the results. 
+ *
+ * Note that this code is not necessary for simple HTTP GET request:
+ * Simply calling loadStrings("http://www.processing.org") would do
+ * the same thing as (and more efficiently than) this example.
+ * This example is for people who might want to do something more 
+ * complicated later.
+ */
+
+
+import processing.net.*;
+
+Client c;
+String data;
+
+void setup() {
+  size(200, 200);
+  background(50);
+  fill(200);
+  c = new Client(this, "httpbin.org", 80); // Connect to server on port 80
+  c.write("GET /ip HTTP/1.0\r\n"); // Use the HTTP "GET" command to ask for a Web page
+  c.write("Host: httpbin.org\r\n");
+  c.write("\r\n");
+}
+
+void draw() {
+  if (c.available() > 0) { // If there's incoming data from the client...
+    data = c.readString(); // ...then grab it and print it
+    println(data);
+  }
+}
+</pre>
+<p>result:</p>
+<pre>Client got end-of-stream.
+HTTP/1.1 200 OK
+Connection: close
+Server: gunicorn/19.9.0
+Date: Wed, 03 Oct 2018 07:01:44 GMT
+Content-Type: application/json
+Content-Length: 30
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+Via: 1.1 vegur
+
+{
+  "origin": "203.85.99.9"
+}
+
+
+</pre>
+<p>//linux code</p>
+<pre>curl -X GET "http://httpbin.org/get" -H "accept: application/json"
+</pre>
+<p>return:</p>
+<pre>{
+  "origin": "203.85.99.9"
+}
+</pre>
+<p>httpie:</p>
+<pre></pre>
+<p>WEB request full statement</p>
+<pre>GET /hello.htm HTTP/1.1
+User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)
+Host: www.tutorialspoint.com
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: Keep-Alive
+</pre>
+<ol>
+    <li style="list-style-type:none;">
+<ol>
+    <li>A Request-line</li>
+    <li>Zero or more header (General|Request|Entity) fields followed by CRLF</li>
+    <li>An empty line (i.e., a line with nothing preceding the CRLF) indicating the end of the header fields</li>
+    <li>Optionally a message-body</li>
+</ol>
+</li>
+</ol>
+
+<pre class="result notranslate">Request-Line = Method SP Request-URI SP HTTP-Version CRLF</pre>
+<pre class="result notranslate">Request-URI = "*" | absoluteURI | abs_path | authority</pre>
+
+
+
+
+<p>ref:: <a href="https://www.tutorialspoint.com/http/http_requests.htm" target="_blank" rel="noopener">https://www.tutorialspoint.com/http/http_requests.htm</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/http-web-request-get/" data-id="ck4a24847001fugwp3khu1mdp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/REST-API/" rel="tag">REST API</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-introduction-to-firmatao" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/introduction-to-firmatao/" class="article-date">
+  <time datetime="2019-12-17T15:19:12.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/introduction-to-firmatao/">introduction-to-firmata</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/10/02/firmata/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/02/firmata/</a></p>
+<hr>
+<p>Firmata：是一種通訊協定(protocol)，是一種用於微控制器與電腦中軟體間的協助通訊的通訊協定。</p>
+<p><a href="https://github.com/firmata/arduino" target="_blank" rel="noopener">https://github.com/firmata/arduino</a></p>
+<p>Tools for testing<br><a href="https://github.com/firmata/firmata_test/downloads" target="_blank" rel="noopener">https://github.com/firmata/firmata_test/downloads</a></p>
+<p><a href="http://firmata.org/wiki/Main_Page" target="_blank" rel="noopener">http://firmata.org/wiki/Main_Page</a></p>
+<p><a href="https://www.cnblogs.com/sjqlwy/p/lattepanda_firmata.html" target="_blank" rel="noopener">https://www.cnblogs.com/sjqlwy/p/lattepanda_firmata.html</a></p>
+<p>Using Firmata to control Arduino by Processing</p>
+<pre>Arduino Program:
+Standard Firmata example
+</pre>
+<pre>Processing:(need to install the arduino first)
+import processing.serial.*;
+import cc.arduino.*;
+
+Arduino arduino;
+int ledPin = 13;
+
+void setup()
+{
+  //println(Arduino.list());
+  arduino = new Arduino(this, Arduino.list()[0], 57600); 
+// the Arduinio.list()[0] can be replace as "COM12"
+  arduino.pinMode(ledPin, Arduino.OUTPUT);
+}
+
+void draw()
+{
+  arduino.digitalWrite(ledPin, Arduino.HIGH);
+  delay(1000);
+  arduino.digitalWrite(ledPin, Arduino.LOW);
+  delay(1000);
+}
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/introduction-to-firmatao/" data-id="ck4a2484b001jugwpamw1drta" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firmata/" rel="tag">firmata</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C-struct-eg" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/C-struct-eg/" class="article-date">
+  <time datetime="2019-12-17T15:17:24.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/C-struct-eg/">C-struct-eg</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/10/02/c-unicode-operator/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/02/c-unicode-operator/</a></p>
+<hr>
+<pre>gcc -Wall -o hello a.c b.c</pre>
+
+<p>-wall : display all warning<br>-o hello: program name hello<br>a.c, b.c: source file</p>
+<hr>
+<p>wchar_t is for unicode<br><a href="http://ccckmit.wikidot.com/cp:unicode" target="_blank" rel="noopener">http://ccckmit.wikidot.com/cp:unicode</a></p>
+<p>a = (1 + 1 == 2)? 4 : 5; // a == 4</p>
+<pre>struct yo {
+    int b;    char c;
+};
+
+struct yo hi;
+hi.b;
+hi.c;
+</pre>
+
+<pre>
+typedef struct {
+    int a;    char b;
+} TypeName;
+
+TypeName c;
+c.a = 10;
+
+</pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/C-struct-eg/" data-id="ck4a248340000ugwp4d4b67ct" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-offline-mesh-network" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/offline-mesh-network/" class="article-date">
+  <time datetime="2019-12-17T15:15:23.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/offline-mesh-network/">offline-mesh-network</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/09/30/offline-mesh-network/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/09/30/offline-mesh-network/</a></p>
+<hr>
+<p><a href="https://www.youtube.com/watch?v=i5aJAzZobBQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=i5aJAzZobBQ</a><br>Gotoky: bluetooth device which allow us to communcation though a long distance without cellular signals.</p>
+<p>Firechat, use Smartphone WIFI and BLUETOOTH –&gt; the range is only 30 step</p>
+<blockquote>
+<blockquote>
+<p>BluCat: <a href="https://www.youtube.com/watch?v=39fNxtTJtis" target="_blank" rel="noopener">https://www.youtube.com/watch?v=39fNxtTJtis</a><br><a href="https://www.opengarden.com/firechat/" target="_blank" rel="noopener">https://www.opengarden.com/firechat/</a></p>
+</blockquote>
+</blockquote>
+<p><a href="https://play.google.com/store/apps/details?id=com.bsb.hike&amp;hl=en" target="_blank" rel="noopener">https://play.google.com/store/apps/details?id=com.bsb.hike&amp;hl=en</a><br>HIKE, Bridgefy, firechat</p>
+<p>Multipeer Connectivity Framework: Similar tech<br><a href="https://www.gotoky.com/" target="_blank" rel="noopener">https://www.gotoky.com/</a></p>
+<p><a href="https://www.gotenna.com/" target="_blank" rel="noopener">https://www.gotenna.com/</a></p>
+<p><a href="https://www.youtube.com/watch?v=hc5bdnqd4xk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hc5bdnqd4xk</a></p>
+<p><a href="https://www.youtube.com/watch?v=ECbycIML0Us" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ECbycIML0Us</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/offline-mesh-network/" data-id="ck4a2484k0025ugwp8w6vfywv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/list/" rel="tag">list</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mesh/" rel="tag">mesh</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-chip-list" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/chip-list/" class="article-date">
+  <time datetime="2019-12-17T15:13:21.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/chip-list/">chip-list</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/09/29/chipssss/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/09/29/chipssss/</a></p>
+<hr>
+<table><tr>
+<td>noa1212</td>
+<td>Ambient Light Sensor with
+Dark Current Compensation</td>
+</tr>
+<tr><td>LE33CZ</td><td>Power regulator</td></tr>
+
+</table>
+***
+
+<p>Check the sheet: <a href="https://docs.google.com/spreadsheets/d/1bSvj8OZcqsrvWt1sdObfNatwZGvJKIxIvwbGuQNLmCI/edit?usp=sharing" target="_blank" rel="noopener">https://docs.google.com/spreadsheets/d/1bSvj8OZcqsrvWt1sdObfNatwZGvJKIxIvwbGuQNLmCI/edit?usp=sharing</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/chip-list/" data-id="ck4a2483x000xugwpdrpj2vsg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-QR-code" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/QR-code/" class="article-date">
+  <time datetime="2019-12-17T15:11:19.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/QR-code/">QR Code</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>migrate from <a href="https://cmakerhk.wordpress.com/2018/09/29/qr-code/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/09/29/qr-code/</a></p>
+<hr>
+<table>
+<tbody>
+<tr>
+<td>PDF417</td>
+<td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/PDF417_Example.svg/496px-PDF417_Example.svg.png" alt="PDF417的圖片搜尋結果" /></td>
+</tr>
+<tr>
+<td>Data Matrix</td>
+<td><img src="https://help.accusoft.com/BarcodeXpress/v12.0/dotnet/images/datamatrix.jpg" alt="data matrix的圖片搜尋結果" /></td>
+</tr>
+<tr>
+<td>QR Code</td>
+<td><img src="http://blog.qartis.com/wp-content/uploads/2013/04/40311284-qr-placement.png" alt="qr code decode的圖片搜尋結果" /></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<p>1D Bar code:</p>
+<p>EAN-8, EAN-13, ISBN-10, ISBN-13, UPC-E, UPCA, CODE39, CODE93, CODE128</p>
+<img src="https://www.presentation-3d.com/wp-content/uploads/2014/03/screen800x500.jpeg" />
+
+<p>ref:<br><a href="https://www.presentation-3d.com/easy-barcode-qr-code-generator-and-batch-convert-to-png-jpg-eps-svg-bmp.html" target="_blank" rel="noopener">https://www.presentation-3d.com/easy-barcode-qr-code-generator-and-batch-convert-to-png-jpg-eps-svg-bmp.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/QR-code/" data-id="ck4a2483f0004ugwp4xa2660h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QR-Code/" rel="tag">QR Code</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-brief-notes-on-esp8266-or-esp32" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/brief-notes-on-esp8266-or-esp32/" class="article-date">
+  <time datetime="2019-12-17T15:09:07.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Experience/">Experience</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/brief-notes-on-esp8266-or-esp32/">Brief notes on ESP8266 or ESP32</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>migrate from <a href="https://cmakerhk.wordpress.com/2018/09/28/brief-notes-on-esp8266-or-esp32/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/09/28/brief-notes-on-esp8266-or-esp32/</a></p>
+<hr>
+<p>nodeMCU is a 3rd party of esp8266 with aid circuit.</p>
+<p>There are muiltiple ways to use ESP8266:</p>
+<table style="height:923px;" width="467">
+<tbody>
+<tr>
+<td>Method 1</td>
+<td>ESP8266 AT Bin V1.7.0 - Control AT Mode</td>
+<td>This allows you communicate with ESP8266 though USART with AT command, you can find this firmware on ESPRESSIF website</td>
+</tr>
+<tr>
+<td>Method 2</td>
+<td>nodeMCU Firmware</td>
+<td>This Firmware allows you to write Lua Script to run on ESP8266</td>
+</tr>
+<tr>
+<td>Method 3</td>
+<td>Arduino IDE</td>
+<td>By adding the hardware library to Arduino IDE, this allows you to write code on Arduino IDE, and use the similar syntax on Arduino on ESP8266</td>
+</tr>
+<tr>
+<td>Method 4</td>
+<td>Official SDK</td>
+<td>It provides two SDK, NONOS SDK, and FreeRTOS SDK, this allows you to write C lang and official API on the ESP8266 chip</td>
+</tr>
+</tbody>
+</table>
+M1 you must have something to send the AT Command
+
+<p>M2, M3, M4 allow you to build standalone ESP8266 program</p>
+<p>AT, NONOS, FreeRTOS:<br><a href="https://www.espressif.com/en/products/hardware/esp8266ex/resources" target="_blank" rel="noopener">https://www.espressif.com/en/products/hardware/esp8266ex/resources</a></p>
+<p>nodeMCU:<br><a href="https://github.com/nodemcu/nodemcu-firmware" target="_blank" rel="noopener">https://github.com/nodemcu/nodemcu-firmware</a><br><a href="https://github.com/nodemcu/nodemcu-firmware/blob/master/docs/en/flash.md" target="_blank" rel="noopener">https://github.com/nodemcu/nodemcu-firmware/blob/master/docs/en/flash.md</a></p>
+<p>Arduino IDE:<br><a href="https://github.com/esp8266/Arduino" target="_blank" rel="noopener">https://github.com/esp8266/Arduino</a></p>
+<p>Some information online is quite confusing. With Arduino connecting the ESP8266 but using the Arduino IDE, Some are AT command, Some are using the Arduino IDE hardware library………….</p>
+<p>##It is fking hard to find the information online…… I spend a whole month to figure out all the relationship ((( don’t blame me stupid</p>
+<p>ESP-Link:<br><a href="https://github.com/jeelabs/esp-link" target="_blank" rel="noopener">https://github.com/jeelabs/esp-link</a><br><a href="https://github.com/arduino-org/Esp-Link" target="_blank" rel="noopener">https://github.com/arduino-org/Esp-Link</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/brief-notes-on-esp8266-or-esp32/" data-id="ck4a2483t000qugwpfms6hxb1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ESP32/" rel="tag">ESP32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ESP8266/" rel="tag">ESP8266</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-list-connector" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/list-connector/" class="article-date">
+  <time datetime="2019-12-17T15:07:46.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/list/">list</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/list-connector/">list-connector</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>migrate from <a href="https://cmakerhk.wordpress.com/2018/09/28/connector/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/09/28/connector/</a></p>
+<hr>
+<table>
+<tbody>
+<tr>
+<td>牛角插</td>
+<td><img src="http://pic17_1.qiyeku.com/qiyeku_pic/2017/6/29/shdz/product/product_pic/image/2017_07_25/20170725091109799.jpg500_0.jpg" alt="Image result for 牛角插" /></td>
+<td>IDC connector - Insulation-displacement connector</td>
+</tr>
+<td>DB9</td>
+<td><img src="https://images-na.ssl-images-amazon.com/images/I/319q9uVY%2BhL.jpg" alt="db9 connector的圖片搜尋結果" /></td>
+<td>For RS232</td>
+<tr></tr>
+</tbody>
+</table>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/list-connector/" data-id="ck4a2484d001mugwp6cm8d3fn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/connector/" rel="tag">connector</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/list/" rel="tag">list</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-notes-sizeof-strlen" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/notes-sizeof-strlen/" class="article-date">
+  <time datetime="2019-12-17T15:06:33.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Notes/">Notes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/notes-sizeof-strlen/">notes-sizeof-strlen</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>migrate from <a href="https://cmakerhk.wordpress.com/2018/09/28/sizeof-vs-strlen/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/09/28/sizeof-vs-strlen/</a></p>
+<hr>
+<p>Sizeof()</p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="preprocessor">#include<stdio.h> </code></div>
+<div class="line number2 index1 alt1"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number3 index2 alt2"><code class="plain">{ </code></div>
+<div class="line number4 index3 alt1 highlighted"><code class="undefined spaces">    </code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d\n"</code><code class="plain">,</code><code class="keyword bold">sizeof</code><code class="plain">(</code><code class="color1 bold">char</code><code class="plain">)); // output 1</code></div>
+<div class="line number5 index4 alt2 highlighted"><code class="undefined spaces">    </code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d\n"</code><code class="plain">,</code><code class="keyword bold">sizeof</code><code class="plain">(</code><code class="color1 bold">int</code><code class="plain">));  // output 4</code></div>
+<div class="line number6 index5 alt1 highlighted"><code class="undefined spaces">    </code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d\n"</code><code class="plain">,</code><code class="keyword bold">sizeof</code><code class="plain">(</code><code class="color1 bold">float</code><code class="plain">));// output 4</code></div>
+<div class="line number7 index6 alt2 highlighted"><code class="undefined spaces">    </code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%d"</code><code class="plain">, </code><code class="keyword bold">sizeof</code><code class="plain">(</code><code class="color1 bold">double</code><code class="plain">));// output 8</code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">    </code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number9 index8 alt2"><code class="plain">}  </code></div>
+</div></td>
+</tr>
+</tbody>
+</table>
+Sizeof will return the size of the variable
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="preprocessor">#include<stdio.h> </code></div>
+<div class="line number2 index1 alt1"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number3 index2 alt2"><code class="plain">{ </code></div>
+<div class="line number4 index3 alt1"><code class="undefined spaces">   </code><code class="color1 bold">int</code> <code class="plain">arr[] = {1, 2, 3, 4, 7, 98, 0, 12, 35, 99, 14}; </code></div>
+<div class="line number5 index4 alt2 highlighted"><code class="undefined spaces">   </code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Number of elements :%d"</code><code class="plain">, </code><code class="keyword bold">sizeof</code><code class="plain">(arr)/</code><code class="keyword bold">sizeof</code><code class="plain">(arr[0])); </code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">   </code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number7 index6 alt2"><code class="plain">}  </code></div>
+</div></td>
+</tr>
+</tbody>
+</table>
+<pre>Number of elements :11</pre>
+This is useful for getting the number of the elements of an array.
+
+<p>allocate memory dynamically - <span style="line-height:27.2px;">To allocate block of memory dynamically.</span></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="color1 bold">int</code> <code class="plain">*ptr = </code><code class="functions bold">malloc</code><code class="plain">(10*</code><code class="keyword bold">sizeof</code><code class="plain">(</code><code class="color1 bold">int</code><code class="plain">)); </code></div>
+</div></td>
+</tr>
+</tbody>
+</table>
+strlen()
+<pre class="prettyprint notranslate prettyprinted"><span class="typ">size_t</span><span class="pln"> strlen</span><span class="pun">(</span><span class="kwd">const</span> <span class="kwd">char</span> <span class="pun">*</span><span class="pln">str</span><span class="pun">)</span></pre>
+not include \0
+
+<p>//========compare</p>
+<p>Since strlen() not inlclude \0</p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="comments">// C program to demonstrate difference  </code></div>
+<div class="line number2 index1 alt1"><code class="comments">// between strlen() and sizeof() </code></div>
+<div class="line number3 index2 alt2"><code class="preprocessor">#include<stdio.h> </code></div>
+<div class="line number4 index3 alt1"><code class="preprocessor">#include<string.h> </code></div>
+<div class="line number5 index4 alt2"><code class="undefined spaces"> </code></div>
+<div class="line number6 index5 alt1"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number7 index6 alt2"><code class="plain">{ </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">    </code><code class="color1 bold">char</code> <code class="plain">str[] = </code><code class="string">"November"</code><code class="plain">; </code></div>
+<div class="line number9 index8 alt2 highlighted"><code class="undefined spaces">    </code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Length of String is %d\n"</code><code class="plain">, </code><code class="functions bold">strlen</code><code class="plain">(str));  //8</code></div>
+<div class="line number10 index9 alt1 highlighted"><code class="undefined spaces">    </code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"Size of String is %d\n"</code><code class="plain">, </code><code class="keyword bold">sizeof</code><code class="plain">(str));    //9</code></div>
+<div class="line number11 index10 alt2"><code class="plain">} </code></div>
+</div></td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="preprocessor">#include <iostream> </code></div>
+<div class="line number2 index1 alt1"><code class="preprocessor">#include <string.h> </code></div>
+<div class="line number3 index2 alt2"><code class="keyword bold">using</code> <code class="keyword bold">namespace</code> <code class="plain">std; </code></div>
+<div class="line number4 index3 alt1"><code class="undefined spaces"> </code></div>
+<div class="line number5 index4 alt2"><code class="color1 bold">int</code> <code class="plain">main() </code></div>
+<div class="line number6 index5 alt1"><code class="plain">{ </code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">        </code><code class="color1 bold">char</code> <code class="plain">a[] = {</code><code class="string">"Geeks for"</code><code class="plain">}; </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">        </code><code class="color1 bold">char</code> <code class="plain">b[] = {</code><code class="string">'G'</code><code class="plain">,</code><code class="string">'e'</code><code class="plain">,</code><code class="string">'e'</code><code class="plain">,</code><code class="string">'k'</code><code class="plain">,</code><code class="string">'s'</code><code class="plain">,</code><code class="string">' '</code><code class="plain">,</code><code class="string">'f'</code><code class="plain">,</code><code class="string">'o'</code><code class="plain">,</code><code class="string">'r'</code><code class="plain">}; //9 char total</code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">        </code><code class="plain">cout << </code><code class="string">"sizeof(a) = "</code> <code class="plain"><< </code><code class="keyword bold">sizeof</code><code class="plain">(a); </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">        </code><code class="plain">cout << </code><code class="string">"\nstrlen(a) = "</code><code class="plain"><< </code><code class="functions bold">strlen</code><code class="plain">(a); </code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">        </code><code class="plain">cout<<  </code><code class="string">"\nsizeof(b) = "</code> <code class="plain"><< </code><code class="keyword bold">sizeof</code><code class="plain">(b); </code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">        </code><code class="plain">cout<<  </code><code class="string">"\nstrlen(b) = "</code> <code class="plain"><< </code><code class="functions bold">strlen</code><code class="plain">(b); </code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">         </code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">        </code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number15 index14 alt2"><code class="plain">} </code></div>
+</div></td>
+</tr>
+</tbody>
+</table>
+sizeof(a): 10 //include the NULL at the end
+
+<p>strlen(a): 9 // not include the NULL</p>
+<p>sizeof(b): 9 // total 9 char ma</p>
+<p>strlen(b):11 // abnormal</p>
+<p>ref:</p>
+<p><a href="https://www.geeksforgeeks.org/sizeof-operator-c/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/sizeof-operator-c/</a></p>
+<p><a href="https://www.tutorialspoint.com/c_standard_library/c_function_strlen.htm" target="_blank" rel="noopener">https://www.tutorialspoint.com/c_standard_library/c_function_strlen.htm</a></p>
+<p><a href="https://www.geeksforgeeks.org/difference-strlen-sizeof-string-c-reviewed/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/difference-strlen-sizeof-string-c-reviewed/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/notes-sizeof-strlen/" data-id="ck4a2484j0022ugwp0djf2xpm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-notes-on-memset" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/notes-on-memset/" class="article-date">
+  <time datetime="2019-12-17T15:04:05.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Notes/">Notes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/notes-on-memset/">notes-on-memset</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>migrate from <a href="https://cmakerhk.wordpress.com/2018/09/28/memset/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/09/28/memset/</a></p>
+<hr>
+<pre class="prettyprint prettyprinted"><span class="kwd">void</span> <span class="pun">*</span><span class="pln">memset</span><span class="pun">(</span><span class="kwd">void</span> <span class="pun">*</span><span class="pln">str</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> c</span><span class="pun">,</span> <span class="typ">size_t</span><span class="pln"> n</span><span class="pun">)</span></pre>
+<p><em><strong>memset</strong> </em>use set the value be <em><strong>c</strong> </em>at pointer <em><strong>str</strong> <strong>n</strong> </em>times and return pointer <em>str</em></p>
+<p>str is a void pointer, so that you can pass in any type.</p>
+<pre class="prettyprint prettyprinted"><span class="com">#include</span> 
+<span class="com">#include</span> 
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span>
+<span class="pun">{</span>
+   <span class="kwd">char</span><span class="pln"> str</span><span class="pun">[</span><span class="lit">50</span><span class="pun">];</span><span class="pln">
+
+   strcpy</span><span class="pun">(</span><span class="pln">str</span><span class="pun">,</span><span class="str">"Hello World"</span><span class="pun">);</span><span class="pln">
+   puts</span><span class="pun">(</span><span class="pln">str</span><span class="pun">);</span><span class="pln">
+
+   memset</span><span class="pun">(</span><span class="pln">str</span><span class="pun">,</span><span class="str">'$'</span><span class="pun">,</span><span class="lit">2</span><span class="pun">);</span><span class="pln">
+   puts</span><span class="pun">(</span><span class="pln">str</span><span class="pun">);</span>
+
+   <span class="kwd">return</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span>
+<span class="pun">}
+
+</span></pre>
+<pre class="result">Hello World
+$$llo World</pre>
+
+
+<p>memset(str, 0, sizeof(str)); //Empty str</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/notes-on-memset/" data-id="ck4a2484i001zugwp4lovgp9p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Experience/">Experience</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/list/">list</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/porject-log/">porject-log</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tutorial/">tutorial</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AT-Command/" rel="tag">AT Command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AVR/" rel="tag">AVR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoML/" rel="tag">AutoML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bus-Pirate/" rel="tag">Bus Pirate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DEVCON/" rel="tag">DEVCON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESP-Link/" rel="tag">ESP-Link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESP32/" rel="tag">ESP32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESP8266/" rel="tag">ESP8266</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPRS-A9-Module/" rel="tag">GPRS A9 Module</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maixpy/" rel="tag">Maixpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QR-Code/" rel="tag">QR Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDP/" rel="tag">RDP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST-API/" rel="tag">REST API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-pi/" rel="tag">Raspberry pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPI/" rel="tag">SPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sipeed/" rel="tag">Sipeed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Synergy/" rel="tag">Synergy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP-IP/" rel="tag">TCP/IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Telegram/" rel="tag">Telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Timer/" rel="tag">Timer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/" rel="tag">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wi-Fi/" rel="tag">Wi-Fi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/" rel="tag">code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/connector/" rel="tag">connector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delay/" rel="tag">delay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firmata/" rel="tag">firmata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/install/" rel="tag">install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mesh/" rel="tag">mesh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/" rel="tag">tutorial</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uPython/" rel="tag">uPython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AT-Command/" style="font-size: 10px;">AT Command</a> <a href="/tags/AVR/" style="font-size: 15px;">AVR</a> <a href="/tags/Arduino/" style="font-size: 17.5px;">Arduino</a> <a href="/tags/AutoML/" style="font-size: 10px;">AutoML</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Bus-Pirate/" style="font-size: 10px;">Bus Pirate</a> <a href="/tags/C-C/" style="font-size: 20px;">C/C++</a> <a href="/tags/Cloud/" style="font-size: 10px;">Cloud</a> <a href="/tags/DEVCON/" style="font-size: 10px;">DEVCON</a> <a href="/tags/ESP-Link/" style="font-size: 10px;">ESP-Link</a> <a href="/tags/ESP32/" style="font-size: 10px;">ESP32</a> <a href="/tags/ESP8266/" style="font-size: 15px;">ESP8266</a> <a href="/tags/GPRS-A9-Module/" style="font-size: 10px;">GPRS A9 Module</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Maixpy/" style="font-size: 10px;">Maixpy</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/QR-Code/" style="font-size: 10px;">QR Code</a> <a href="/tags/RDP/" style="font-size: 10px;">RDP</a> <a href="/tags/REST-API/" style="font-size: 10px;">REST API</a> <a href="/tags/Raspberry-pi/" style="font-size: 15px;">Raspberry pi</a> <a href="/tags/SPI/" style="font-size: 12.5px;">SPI</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Sipeed/" style="font-size: 10px;">Sipeed</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Synergy/" style="font-size: 10px;">Synergy</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Telegram/" style="font-size: 10px;">Telegram</a> <a href="/tags/Timer/" style="font-size: 10px;">Timer</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Wi-Fi/" style="font-size: 12.5px;">Wi-Fi</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/connector/" style="font-size: 10px;">connector</a> <a href="/tags/delay/" style="font-size: 10px;">delay</a> <a href="/tags/firmata/" style="font-size: 10px;">firmata</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/install/" style="font-size: 10px;">install</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 15px;">list</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mesh/" style="font-size: 10px;">mesh</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tutorial/" style="font-size: 10px;">tutorial</a> <a href="/tags/uPython/" style="font-size: 10px;">uPython</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/17/clang-markdown/">clang-markdown</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/17/wsl-note/">wsl-note</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/17/gprs-a9-log/">gprs-a9-log</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/17/google-cloud-compare/">google-cloud-compare</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/17/maxpy-getting-start/">Getting Started on Sipeed MAIX M1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

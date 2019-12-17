@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;page&#x2F;3&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-arduino-makefile-cli" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/arduino-makefile-cli/" class="article-date">
+  <time datetime="2019-12-17T15:33:03.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/arduino-makefile-cli/">arduino-makefile-cli</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from </p>
+<hr>
+<p><a href="https://playground.arduino.cc/Learning/CommandLine" target="_blank" rel="noopener">https://playground.arduino.cc/Learning/CommandLine</a><br><a href="https://www.nongnu.org/avr-libc/" target="_blank" rel="noopener">https://www.nongnu.org/avr-libc/</a></p>
+<p>install<br>– avr-gcc (whose package is usually called gcc-avr),<br>– avr-libc<br>– avrdude</p>
+<p>*<em>GCC: CNU Compiler Collection<br>*</em>avr-libc: provide a high quality C library for use with GCC on Atmel AVR microcontrollers<br>**avrdude: utility to download/upload/manipulate the ROM and EEPROM contents of AVR microcontrollers using the in-system programming technique (ISP)</p>
+<p>  sudo apt-get install gcc-avr avr-libc avrdude<br>  avr-libc avrdude binutils-avr gcc-avr libftdi1 libusb-0.1-4</p>
+<p>Look at the Makefile</p>
+<p>** Makefile: Makefile是幫助compile的工具，透過Makefile，可以簡化build的流程。特別是當程式愈寫愈大，source file愈來愈多時，更要用Makefile來管理</p>
+<p>Makefiles:</p>
+<p>$@：目前的目標項目名稱。<br>$ about the =, :=</p>
+<p>linux teminal<br>sudo usbview<br>“dmesg | grep tty” to get which port you are using</p>
+<p>seems fail to use make in CLI</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/arduino-makefile-cli/" data-id="ck4a2483g0005ugwpbw0hbxeg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-install-synergy-kvm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/install-synergy-kvm/" class="article-date">
+  <time datetime="2019-12-17T15:32:05.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/install-synergy-kvm/">Synergy – KVM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate form <a href="https://cmakerhk.wordpress.com/2018/10/14/synergy-kvm/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/14/synergy-kvm/</a></p>
+<hr>
+<p><a href="https://www.brahma.world/synergy-stable-builds/" target="_blank" rel="noopener">https://www.brahma.world/synergy-stable-builds/</a><br><a href="https://github.com/synergy" target="_blank" rel="noopener">https://github.com/synergy</a></p>
+<p>you can install the .msi on the synergy-stable build</p>
+<p>for the .deb linux file, I cannot install it with the .deb installer.</p>
+<p>Run “sudo apt-get install synergy quicksynergy”</p>
+<ol>
+<li>Windows version do not have SSL … so disable it on the Linux side</li>
+<li>on the server side, Config the name of your client device</li>
+<li>on the client side, config the ip adress of the server</li>
+<li>click start on both program. and it should work fine</li>
+</ol>
+<p>becareful you should have a pretty go internet connection.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/install-synergy-kvm/" data-id="ck4a2484a001iugwp7h5hc0f9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Synergy/" rel="tag">Synergy</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-avr-c-marco-define" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/avr-c-marco-define/" class="article-date">
+  <time datetime="2019-12-17T15:31:09.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/avr-c-marco-define/">avr-c-marco-define</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/10/13/marco-define/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/13/marco-define/</a></p>
+<hr>
+<pre>#include 
+#include 
+#include "avr/interrupt.h"
+
+typedef unsigned char BYTE; //8bit 0-255
+typedef unsigned int BYTE2;    //16bit 0-65535
+typedef unsigned long BYTE4;//32bit 0-4294967295
+typedef enum { FALSE, TRUE } bool; // 0 false, 1 true
+//Marcos of register
+
+#define F_CPU 16000000UL  // 16 MHz for ATmega328p, UL stand for unsigned integer
+#define SETBIT(ADDRESS,BIT)        (ADDRESS |= (1<<BIT)) //Set the bit to one left other untouch
+#define CLEARBIT(ADDRESS,BIT)    (ADDRESS &= ~(1<<BIT))//Clear the bit to zero left other untouch
+#define TOGGLEBIT(ADDRESS,BIT)    (ADDRESS ^= (1<<BIT)) //toggle the bit in address
+#define CHECKBIT(ADDRESS,BIT)    (ADDRESS & (1<<BIT))    //check if 0 = false, 1 = true
+#define InterruptEn()            sei()
+#define InterruptStop()            cli()
+
+
+
+</pre>
+<pre>//exam ultimate shorthand
+/*
+ * EIE3105_exam.c
+ *
+ * Created: 12/4/2017 12:51:11 AM
+ * Author : CenzSA12
+ */ 
+
+#define F_CPU 16000000UL  // 16 MHz for ATmega328p, UL stand for unsigned integer
+#define prescaler 256
+#define F_CPU_prescaler 16000000UL/prescaler
+
+#include 
+#include 
+#include "avr/interrupt.h"
+
+typedef unsigned char BYTE; //8bit 0-255
+typedef unsigned int BYTE2;    //16bit 0-65535
+typedef unsigned long BYTE4;//32bit 0-4294967295
+typedef enum { FALSE, TRUE } bool; // 0 false, 1 true
+//Marcos of register
+
+#define SETBIT(ADDRESS,BIT)        (ADDRESS |= (1<<BIT)) //Set the bit to one left other untouch
+#define CLEARBIT(ADDRESS,BIT)    (ADDRESS &= ~(1<<BIT))//Clear the bit to zero left other untouch
+#define TOGGLEBIT(ADDRESS,BIT)    (ADDRESS ^= (1<<BIT)) //toggle the bit in address
+#define CHECKBIT(ADDRESS,BIT)    (ADDRESS & (1<<BIT))    //check if 0 = false, 1 = true
+#define InterruptEn()            sei()
+#define InterruptStop()            cli()
+
+//ATMEGA328P
+//Marco: Short Hand
+//8 bit timer/counter0 with PWM==========
+#define TC01Prescaler0 0x01
+#define TC01Prescaler8 0x02
+#define TC01Prescaler64  0x03
+#define TC01Prescaler256 0x04
+#define TC01Prescaler1024 0x05
+#define TC01CounterFalling 0x06
+#define TC01CounterRising 0x07
+
+#define TC0Stop()        (TCCR0B &= ~((1<<CS02)|(1<<CS01)|(1<<CS00)))    //close the clock
+#define TC0En(mode)        (TCCR0B |= mode)
+
+#define TC0ModeNormal(_TCNT0) {\
+    TCNT0 = _TCNT0;\
+    TCCR0A &= ~((1<<WGM01)|(1<<WGM00));\
+}
+#define TC0ModeCTC(_TCNT0,_OCR0A){\
+    TCNT0 = _TCNT0;\
+    OCR0A = _OCR0A;\
+    TCCR0A |= (1<<WGM01);\
+}
+
+#define TC0ClearOverflowFlag()    (SETBIT(TIFR0,TOV0))
+#define TC0ClearCompareMatchFlag() (SETBIT(TIFR0,OCF0A))
+//interrupt
+#define TC0INTModeNormalEn()        SETBIT(TIMSK0,TOIE0)
+#define TC0INTModeCTCEn()            SETBIT(TIMSK0,OCIE0A)
+#define TC0INTModeCTCStop()            CLEARBIT(TIMSK0,OCIE0A)
+#define TC0INTModeNormalStop()        CLEARBIT(TIMSK0,TOIE0)
+
+//Timer1=====================================
+#define TC1ModeCTC(_TCNT1H,_TCNT1L,_OCR1AH,_OCR1AL){\
+    SETBIT(TCCR1B,WGM12);\
+    TCNT1 = (_TCNT1H << 8) + _TCNT1L;\
+    OCR1A = (_OCR1AH << 8) + _OCR1AL;\
+}
+#define TC1ModeNormal(_TCNT1H,_TCNT1L){\
+    TCNT1 = (_TCNT1H << 8) + _TCNT1L;\
+}
+
+#define TC1En(mode)        (TCCR1B |= mode)
+#define TC1Stop()        (TCCR1B &= ~((1<<CS12)|(1<<CS11)|(1<<CS10)))
+
+#define TC1ClearOverflowFlag()    (SETBIT(TIFR1,TOV1))
+#define TC1ClearCompareMatchFlag() (SETBIT(TIFR1,OCF1A))
+
+#define TC1INTModeNormalEn()        SETBIT(TIMSK1,TOIE1)
+#define TC1INTModeCTCEn()            SETBIT(TIMSK1,OCIE1A)
+#define TC1INTModeCTCStop()            CLEARBIT(TIMSK1,OCIE1A)
+#define TC1INTModeNormalStop()        CLEARBIT(TIMSK1,TOIE1)
+
+//Timer2=======================
+#define TC2prescaler0 1
+#define TC2prescaler8 2
+#define TC2prescaler32 3
+#define TC2prescaler64 4
+#define TC2prescaler128 5
+#define TC2prescaler256 6
+#define TC2prescaler1024 7
+
+#define TC2Stop()        (TCCR2B &= ~((1<<CS22)|(1<<CS21)|(1<<CS20)))    //close the clock
+#define TC2En(prescaler)        (TCCR2B |= prescaler)
+
+#define TC2ModeNormal(_TCNT2) {\
+    TCNT2 = _TCNT2;\
+    TCCR2A &= ~((1<<WGM21)|(1<<WGM20));\
+}
+#define TC2ModeCTC(_TCNT2,_OCR2A){\
+    TCNT2 = _TCNT2;\
+    OCR2A = _OCR2A;\
+    TCCR2A |= (1<<WGM21);\
+}
+
+#define TC2ClearOverflowFlag()    (SETBIT(TIFR2,TOV2))
+#define TC2ClearCompareMatchFlag() (SETBIT(TIFR2,OCF2A))
+//interrupt
+#define TC2INTModeNormalEn()        SETBIT(TIMSK2,TOIE2)
+#define TC2INTModeCTCEn()            SETBIT(TIMSK2,OCIE2A)
+#define TC2INTModeCTCStop()            CLEARBIT(TIMSK2,OCIE2A)
+#define TC2INTModeNormalStop()        CLEARBIT(TIMSK2,TOIE2)
+
+//external interrupt
+#define ExtIntLevelLow    0
+#define ExtIntEdgeFalling 2
+#define ExtIntEdgerising 3
+#define ExtIntLogicChange 1
+#define ExtIntx(INTx,Mode) {\
+    SETBIT(PORTD,(INTx+2)); \
+    SETBIT(EIMSK,INTx);\
+    EICRA = (Mode << (INTx*2));\
+}
+
+#define setBaudRate(_BAUD,_double){\
+    UCSR0A |= (_double << U2X0);\
+    UBRR0 = (F_CPU/(16UL* _BAUD /( _double +1)))-1;\
+}
+
+#define BufferisEmpty CHECKBIT(UCSR0A,UDRE0)
+#define RxisComplete CHECKBIT(UCSR0A,RXC0)
+#define TxisComplete CHECKBIT(UCSR0B,TXC0)
+
+//8bits
+//1 stop bit
+//no parity check
+#define USARTEn(){\
+    UCSR0B |= (1<<TXEN0)|(1<<RXEN0);\
+    UCSR0C |= (1<<UCSZ01)|(1<<UCSZ00);\
+}
+
+#define USARTEnINT() (UCSR0B |= (1<<RXCIE0))
+
+
+void usart_send(char);
+char usart_receive(void);
+
+void usart_send_string(char* _str);
+void usart_receive_string(char* _str);
+
+void usart_send(char ch){
+    while (!BufferisEmpty);
+    UDR0 = ch;
+}
+
+char usart_receive(void){
+    while(!RxisComplete);    //wait until the receive complete
+    return UDR0;
+};
+
+void usart_send_string(char* _str){
+    for (BYTE i = 0; i < strlen(_str);i++)
+    {
+        usart_send(_str[i]);
+    }
+}
+
+void usart_receive_string(char* _str){
+    char ch[255] = {0};
+    strcpy(_str,ch);
+    //usart_send_string(_str);
+    char temp = 0;
+    BYTE i = 0;
+
+    for (i = 0; temp != '\n' ; i++)
+    {
+        temp = usart_receive();
+        ch[i] = temp;
+    }
+    //usart_send_string(ch);
+    strcpy(_str,ch);
+}
+
+
+//====================================
+typedef struct
+{
+    BYTE2 duty_Cycle;
+    BYTE2 out_Freq;
+}PWM;
+
+#define FPWMEn(_timeEn){\
+    TCCR0A |= (1<<COM0A1)|(1<<COM0B1);\
+    TCCR0A |= (1<<WGM00)|(1<<WGM01);\
+    TCCR0B |= (1<<WGM02);\
+    DDRD |= (1 << DDD5);\
+    TC0En(_timeEn);\
+}
+
+
+
+void FPWMSetup(PWM pwm){
+    OCR0A = F_CPU_prescaler/pwm.out_Freq - 1;
+    OCR0B = ((OCR0A+1)*pwm.duty_Cycle)/100 -1;
+}
+
+void PWMinputCapSetup(){
+    CLEARBIT(PORTB,PORTB0);
+    SETBIT(PORTB,PORTB0);
+    TC1ModeNormal(0,0);
+}
+
+BYTE2 PWMinputCapturePW(){
+    SETBIT(TCCR1B, ICES1);
+    TC1En(TC01Prescaler256);
+
+    SETBIT(TIFR1,ICF1);
+    while (!CHECKBIT(TIFR1,ICF1));
+    BYTE2 t1 = ICR1;
+
+    SETBIT(TIFR1,ICF1);
+    CLEARBIT(TCCR1B, ICES1);
+    while (!CHECKBIT(TIFR1,ICF1));
+    BYTE2 _return = ICR1 - t1;
+
+    SETBIT(TIFR1,ICF1);
+    while (!CHECKBIT(TIFR1,ICF1));
+    return _return;
+
+}
+
+BYTE2 PWMinputCapturePeriod(){
+    SETBIT(TCCR1B, ICES1);
+    TC1En(TC01Prescaler256);
+
+    SETBIT(TIFR1,ICF1);
+    while (!CHECKBIT(TIFR1,ICF1));
+    BYTE2 t1 = ICR1;
+
+    SETBIT(TIFR1,ICF1);
+    while (!CHECKBIT(TIFR1,ICF1));
+    BYTE2 _return = ICR1 - t1;
+
+    SETBIT(TIFR1,ICF1);
+    while (!CHECKBIT(TIFR1,ICF1));
+    return _return;
+}
+//=========Timer1=============
+#define FPWMTC1En(_timeEn){\
+    TCCR1A |= (1<<COM1A1)|(1<<COM1B1);\
+    TCCR1A |= (1<<WGM10)|(1<<WGM11);\
+    TCCR1B |= (1<<WGM12);\
+    DDRB |= (1 << DDB2);\
+    TC1En(_timeEn);\
+}
+
+
+
+void FPWMTC1Setup(PWM pwm){
+    OCR1A = F_CPU_prescaler/pwm.out_Freq - 1;
+    OCR1B = ((OCR1A+1)*pwm.duty_Cycle)/100 -1;
+}
+
+//====================================
+//ADCCC
+#define ADC0 0
+#define ADC1 1
+#define ADC2 2
+#define ADC3 3
+#define ADC4 4
+#define ADC5 5
+#define ADC6 6
+#define ADC7 7
+
+
+#define ADCinit(){\
+    SETBIT(ADMUX,REFS0);\
+    SETBIT(ADCSRA,ADEN);\
+    ADCSRA |= (1<<ADPS0)|(1<<ADPS1);\
+}
+
+#define ADCintEn(){\
+    ADCSRA |= (1<<ADIE);\
+    sei();\
+}
+
+
+
+#define ADCStartConv(ADCx){\
+    ADMUX &= ~((1<<MUX0)|(1<<MUX1)|(1<<MUX2)|(1<<MUX3));\
+    ADMUX |= ADCx;\
+    SETBIT(ADCSRA ,ADSC);\
+}
+
+
+#define ADCLAdj(){\
+    SETBIT(ADMUX,ADLAR);\
+}
+
+
+ </pre>
+
+
+<pre>
+
+#define ASCIIHex2Num(__ASCII__) (__ASCII__ & 0x0F) + 9*((__ASCII__ & 0x40) >> 6)
+#define Num2ASCII_CAP(__Num__) (__Num__ | 0x30) + 7*(__Num__ / 10 )
+
+int main ()
+{
+  int i = 0;
+  char c = 'C';
+  i = ASCIIHex2Num ('e');
+  printf("%i", i);
+  c = Num2ASCII_CAP (i);
+  printf ("%c", c);
+
+  return 0;
+}
+
+
+
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/avr-c-marco-define/" data-id="ck4a2483q000jugwp0pgth386" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVR/" rel="tag">AVR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bus-pirate-note" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/bus-pirate-note/" class="article-date">
+  <time datetime="2019-12-17T15:30:06.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/bus-pirate-note/">bus-pirate-note</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/10/13/bus-pirate-note/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/13/bus-pirate-note/</a></p>
+<hr>
+<p>Learning Guys</p>
+<p><a href="https://github.com/BusPirate/Bus_Pirate" target="_blank" rel="noopener">https://github.com/BusPirate/Bus_Pirate</a><br>Compiling your own firmware:<br><a href="http://dangerousprototypes.com/docs/Compile_the_Bus_Pirate_firmware" target="_blank" rel="noopener">http://dangerousprototypes.com/docs/Compile_the_Bus_Pirate_firmware</a><br><a href="https://github.com/BusPirate/Bus_Pirate/blob/master/Documentation/building-and-flashing-firmware.md" target="_blank" rel="noopener">https://github.com/BusPirate/Bus_Pirate/blob/master/Documentation/building-and-flashing-firmware.md</a><br><a href="http://dangerousprototypes.com/docs/Bus_Pirate_101_tutorial" target="_blank" rel="noopener">http://dangerousprototypes.com/docs/Bus_Pirate_101_tutorial</a></p>
+<p>The Bus Pirate firmware defaults to a 115200bps/8/N/1 UART.</p>
+<pre>
+Hi Z>m
+//show the menu to change the mode
+HiZ> ? 
+//Show all the command
+
+
+</pre>
+
+<p>mode:<br>HiZ<br>1-Wire<br>UART<br>I2C<br>SPI<br>2WIRE<br>3WIRE<br>LCD<br>DIO</p>
+<p><a href="http://dangerousprototypes.com/docs/Logic_analyzer_mode" target="_blank" rel="noopener">http://dangerousprototypes.com/docs/Logic_analyzer_mode</a><br>Bus Pirate Logic Analysis mode<br><a href="http://eecs.oregonstate.edu/education/docs/bus_pirate/How%20To%20Use%20A%20Bus%20Pirate.pdf" target="_blank" rel="noopener">http://eecs.oregonstate.edu/education/docs/bus_pirate/How%20To%20Use%20A%20Bus%20Pirate.pdf</a></p>
+<p><a href="https://www.lxtreme.nl/ols/" target="_blank" rel="noopener">https://www.lxtreme.nl/ols/</a><br><a href="http://logicsniffer.gadgetfactory.net/index.php?n=LogicSniffer.Download" target="_blank" rel="noopener">http://logicsniffer.gadgetfactory.net/index.php?n=LogicSniffer.Download</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/bus-pirate-note/" data-id="ck4a2483v000tugwp2pc43xj4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bus-Pirate/" rel="tag">Bus Pirate</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-avr-c-programming-notes" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/avr-c-programming-notes/" class="article-date">
+  <time datetime="2019-12-17T15:28:54.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/avr-c-programming-notes/">avr-c-programming-notes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/10/13/avr-c-programming/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/13/avr-c-programming/</a></p>
+<hr>
+<p>_BV is only defined in the avr-libc headers. Extracted from avr/sfr_defs.h in avr-libc::::BV=Bit Value</p>
+<pre>
+       #define _BV(bit) (1 << (bit))
+
+       TCCR2 = _BV(COM20)|_BV(CTC2)|_BV(CS20);
+        DDRD = _BV(PD7);
+==
+       TCCR2 = (1<<COM20)|(1<<CTC2)|(1<<CS20);
+        DDRD = (1<<PD7);
+
+</pre>
+
+
+
+<pre>
+//bit masking
+// BM => Bit Mask
+#define _BM(bit7, bit6, bit5, bit4, bit3, bit2, bit1, bit0)     \
+(                                                               \
+    ((bit7 == 7) << (bit7 & 7)) |                               \
+    ((bit6 == 6) << (bit6 & 6)) |                               \
+    ((bit5 == 5) << (bit5 & 5)) |                               \
+    ((bit4 == 4) << (bit4 & 4)) |                               \
+    ((bit3 == 3) << (bit3 & 3)) |                               \
+    ((bit2 == 2) << (bit2 & 2)) |                               \
+    ((bit1 == 1) << (bit1 & 1)) |                               \
+    ((bit0 == 0) << (bit0 & 0))                                 \
+)
+
+UCSR0A = _BM (RXC0, TXC0, ~UDRE0, ~FE0, ~DOR0, ~UPE0, ~U2X0, ~MPCM0);
+
+
+</pre>
+
+
+<p>#define pinIsSlave 2<br>#define pinNSS 10<br>//pin2 is High –&gt; Slave<br>//pin2 is Low  –&gt; Master</p>
+<p>#define DDR_SPI DDRB<br>#define DD_MOSI DDB3<br>#define DD_MISO DDB4<br>#define DD_SCK  DDB5<br>#define DD_NSS  DDB2</p>
+<p>//==========<br>//pin   Master    Slave<br>//MOSI  User      INPUT<br>//MISO  INPUT     User<br>//SCK   User      INPUT<br>//NSS   User      INPUT</p>
+<p>//__enable_interrupt();<br>void SPI_MasterInit(void);<br>char SPI_MasterTransmit(char cData);<br>void SPI_SlaveInit(void);<br>char SPI_SlaveReceive(void);</p>
+<p>void setup() {<br>  pinMode(pinIsSlave, INPUT_PULLUP);<br>  Serial.begin(9600);<br>  Serial.println(“Master/Slave SPI - USART Firmware V1.0”);<br>  Serial.println(“pin2 is High –&gt; Slave || pin2 is Low  –&gt; Master”);</p>
+<p>  //Program Start<br>  if(digitalRead(pinIsSlave)){<br>   //========================= SLAVE ===================<br>   Serial.println(“\n\n====Slave Mode is Selected====”);<br>   pinMode(pinNSS, INPUT);<br>   SPI_SlaveInit();</p>
+<p>   while(1){<br>    if(digitalRead(pinNSS) == LOW)<br>      Serial.print(SPI_SlaveReceive());<br>   }</p>
+<p>  }else{<br>   //========================= MASTER ==================<br>   Serial.println(“\n\n====Master Mode is Selected====”);<br>   pinMode(pinNSS, OUTPUT);<br>   SPI_MasterInit();</p>
+<p>   while(1){<br>       digitalWrite(pinNSS, HIGH);<br>       char a = SPI_MasterTransmit(‘h’);<br>       digitalWrite(pinNSS, LOW);<br>       Serial.print(a);<br>       delay(2000);<br>    }</p>
+<p>  }<br>}</p>
+<p>void SPI_MasterInit(void){<br>  // Set MOSI and SCK output, all others untouch<br>  DDR_SPI |= (1 &lt;&lt; DD_MOSI)|(1 &lt;&lt; DD_SCK);</p>
+<p>  //Enable SPI, Master,<br>  SPCR |= (1 &lt;&lt; SPE)|(1 &lt;&lt; MSTR);</p>
+<p>  //SPI0 Clock Rate Select to f_osc/16<br>  SPCR |= (1 &lt;&lt; SPR0);<br>}</p>
+<p>char SPI_MasterTransmit(char cData){<br>  //Start Transmission<br>  SPDR = cData;</p>
+<p>  //wait until Commication complete<br>  while(!(SPSR &amp; (1 &lt;&lt; SPIF)));</p>
+<p>  return SPDR;<br>//<br>//    SPDR = cData;<br>//    asm volatile(“nop”);<br>//    while (!(SPSR &amp; _BV(SPIF))) ; // wait<br>//    return SPDR;</p>
+<p>}</p>
+<p>void SPI_SlaveInit(void){<br>  //Set MISO output, all other untouch<br>  DDR_SPI |= (1 &lt;&lt; DD_MISO);</p>
+<p>  //Enable SPI<br>  SPCR = (1 &lt;&lt; SPE);<br>}</p>
+<p>char SPI_SlaveReceive(void){<br>  //wait until Commication complete<br>  Serial.print(“I am fucking here”);<br>  while(!(SPSR &amp; (1 &lt;&lt; SPIF)));<br>  Serial.println(“Something is here”);</p>
+<p>  //Start Transmission<br>  return SPDR;<br>}</p>
+<p>void loop() {<br>  // put your main code here, to run repeatedly:</p>
+<p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/avr-c-programming-notes/" data-id="ck4a2483r000mugwpa8yl5hbk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVR/" rel="tag">AVR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-install-on-external-hdd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/linux-install-on-external-hdd/" class="article-date">
+  <time datetime="2019-12-17T15:27:45.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/linux-install-on-external-hdd/">linux-install-on-external-hdd</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/10/13/install-on-external-hdd/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/13/install-on-external-hdd/</a></p>
+<hr>
+<p>How I made it:</p>
+<p>the ubuntu iso only create the boot part –&gt; therefore, it has no OS inside and the file is quite small.</p>
+<p>How I fail ::<br>I use rufus/etcher to burn iso on External HDD, and the installation of the OS require remapping on the memory address, therefore, it crash on these scenaio.</p>
+<p>I use one more USB (16GB) to be burnt by rufus, and install that ubuntu on my 1TB external HDD, and this success.</p>
+<p>The error message won’t tell you this, you need to go and explore by yourselve.</p>
+<p>–&gt; partition software, <a href="https://www.partitionwizard.com/" target="_blank" rel="noopener">https://www.partitionwizard.com/</a> by miniTool<br>–&gt; Flashing software: rufus/etcher</p>
+<p>Many tutorial and youtube won’t help, since they don’t give you the big picture.</p>
+<p>It is similar but not the same on flashing with raspberry pi(ubuntu Mate) and ubuntu Desktop</p>
+<p>On Ubuntu Mate(pi), you flash the image on to the SD card, and everything is done.. the OS is already installed on the SD card.</p>
+<p>However, in ubuntu Desktop, you need to have the installation USB, and a harddisk to make it work.</p>
+<p>If needed self-parti:<br>swap area 512 MB<br>/home 20000MB<br>/ the rest of your HDD</p>
+<p>will do</p>
+<p>ref: <a href="https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation" target="_blank" rel="noopener">https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation</a></p>
+<p>Hope you can do it. happy Linux</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/linux-install-on-external-hdd/" data-id="ck4a2484f001rugwp7xnt8q33" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/install/" rel="tag">install</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-arduino-spi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/arduino-spi/" class="article-date">
+  <time datetime="2019-12-17T15:26:13.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/arduino-spi/">arduino-spi</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/10/12/arduino-spi/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/12/arduino-spi/</a></p>
+<hr>
+<p><a href="https://www.microchip.com/wwwproducts/en/ATmega328p" target="_blank" rel="noopener">https://www.microchip.com/wwwproducts/en/ATmega328p</a><br><a href="https://www.arduino.cc/en/Reference/SPI" target="_blank" rel="noopener">https://www.arduino.cc/en/Reference/SPI</a></p>
+<p>The Arduino Lib is for SPI Master, if you would like to play with SLAVE &gt;&gt; 0)  –&gt; to enable SPI module</p>
+<p><a href="https://github.com/PaulStoffregen/SPI/blob/master/SPI.h" target="_blank" rel="noopener">https://github.com/PaulStoffregen/SPI/blob/master/SPI.h</a></p>
+<pre>
+//master loopback
+#include 
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  SPI.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+
+void serialEvent(){
+//statements
+      Serial.print(SPI.transfer(Serial.read()));
+}
+
+</pre>
+
+<pre>
+//unfinished
+
+#define pinIsSlave 2
+#define pinNSS 10
+//pin2 is High --> Slave
+//pin2 is Low  --> Master
+
+#define DDR_SPI DDRB
+#define DD_MOSI DDB3
+#define DD_MISO DDB4
+#define DD_SCK  DDB5
+#define DD_NSS  DDB2
+
+//==========
+//pin   Master    Slave
+//MOSI  User      INPUT
+//MISO  INPUT     User
+//SCK   User      INPUT
+//NSS   User      INPUT
+
+//__enable_interrupt();
+void SPI_MasterInit(void);
+char SPI_MasterTransmit(char cData);
+void SPI_SlaveInit(void);
+char SPI_SlaveReceive(void);
+
+void setup() {
+  pinMode(pinIsSlave, INPUT_PULLUP);
+  Serial.begin(9600);
+  Serial.println("Master/Slave SPI - USART Firmware V1.0");
+  Serial.println("pin2 is High --> Slave || pin2 is Low  --> Master");
+
+  //Program Start
+  if(digitalRead(pinIsSlave)){
+   //========================= SLAVE ===================
+   Serial.println("\n\n====Slave Mode is Selected====");
+   SPI_SlaveInit();
+  }else{
+   //========================= MASTER ==================
+   Serial.println("\n\n====Master Mode is Selected====");
+   pinMode(pinNSS, OUTPUT);
+   SPI_MasterInit();
+
+   char a = SPI_MasterTransmit('i');
+   Serial.print(a);
+
+  }
+}
+
+void SPI_MasterInit(void){
+  // Set MOSI and SCK output, all others untouch
+  PORTB = 0xFF;
+  DDR_SPI = (1 << DD_MOSI)|(1 << DD_SCK);
+
+  //Enable SPI, Master,
+  SPCR = (1 << SPE)|(1 << MSTR);
+
+  //SPI0 Clock Rate Select to f_osc/16
+  SPCR |= (1 << SPR0);
+}
+
+char SPI_MasterTransmit(char cData){
+  //Start Transmission
+  SPDR = cData;
+
+  //wait until Commication complete
+  while(!(SPSR & (1 << SPIF)));
+
+  return SPDR;
+//
+//    SPDR = cData;
+//    asm volatile("nop");
+//    while (!(SPSR & _BV(SPIF))) ; // wait
+//    return SPDR;
+
+}
+
+void SPI_SlaveInit(void){
+  //Set MISO output, all other untouch
+  DDR_SPI = (1 << DD_MISO);
+
+  //Enable SPI
+  SPCR = (1 << SPE);  
+}
+
+char SPI_SlaveReceive(void){
+  //wait until Commication complete
+  while(!(SPSR & (1 << SPIF)));
+
+  //Start Transmission
+  return SPDR;
+}
+
+
+
+
+
+
+
+
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+
+
+</pre>
+
+
+
+
+<p>ref:<br><a href="http://www.gammon.com.au/forum/?id=10892&amp;reply=1#reply1" target="_blank" rel="noopener">http://www.gammon.com.au/forum/?id=10892&amp;reply=1#reply1</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/arduino-spi/" data-id="ck4a2483j000bugwp1rcm9xop" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPI/" rel="tag">SPI</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-rpi-spi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/rpi-spi/" class="article-date">
+  <time datetime="2019-12-17T15:25:03.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/rpi-spi/">Using SPI on RPi</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/10/08/using-spi-on-rpi/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/08/using-spi-on-rpi/</a></p>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br><span class="line">------to turn the SPI on----------</span><br></pre></td></tr></table></figure>
+<p>Problem I have got:<br>“If the SPI driver was loaded, you should see the device /dev/spidev0.0”<br>BUT WHAT THE FUCK I DON”T HAVE THAT =.= …<br><a href="http://neophob.com/2012/08/raspberry-pi-enable-the-spi-device/" target="_blank" rel="noopener">http://neophob.com/2012/08/raspberry-pi-enable-the-spi-device/</a> (useless)<br><a href="http://www.brianhensley.net/2012/07/getting-spi-working-on-the-raspberry-pi.html" target="_blank" rel="noopener">http://www.brianhensley.net/2012/07/getting-spi-working-on-the-raspberry-pi.html</a> (USELESS)<br>=.= The Rpi-update will take you to the latest AND unstable version of kernal</p>
+<p>So the official command should be<br>sudo apt-get update;<br>sudo apt-get install –reinstall raspberrypi-bootloader raspberrypi-kernal</p>
+<p>To check your firmware:<br>$ uname -a<br>$ cat /proc/version</p>
+<p>IT SHOULD BE VERY EASY TO turn SPI on, if everything is not right … don’t structgle. try flashing other kernal … since kernal problem is not that easy to handle &gt;&gt;&gt;&gt;&gt; actually is impossible to handle</p>
+<p>note:<br>I have tried to move the missing /dev/spidev0.0 and /dev/spidev0.1 file to that raspberry pi –&gt;&gt;<br>and hoping it will work fine… and it doesn’t work.</p>
+<p>SPI workable kernal: Linux version 4.9.35-v7+<br>SPI not workable kernal: Linux version 4.14.73-v7+</p>
+<p>Ref: <a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md" target="_blank" rel="noopener">https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md</a></p>
+<p>i2c<br>On bash:<br>i2cdetect</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/rpi-spi/" data-id="ck4a2484m002augwp0oiz23s5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-pi/" rel="tag">Raspberry pi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPI/" rel="tag">SPI</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-rpi-skills" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/rpi-skills/" class="article-date">
+  <time datetime="2019-12-17T15:23:10.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/rpi-skills/">Raspberry pi:Skills</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/10/08/raspberry-pi-skills/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/08/raspberry-pi-skills/</a></p>
+<hr>
+<p>accessing with Serial &gt;,&lt;</p>
+<p>Setting up wifi connection with CMD</p>
+<pre></pre>
+<p>Accessing GPIO<br>On SHELL/BASH<br><a href="https://luketopia.net/2013/07/28/raspberry-pi-gpio-via-the-shell/" target="_blank" rel="noopener">https://luketopia.net/2013/07/28/raspberry-pi-gpio-via-the-shell/</a></p>
+<p>On C++<br>Wiring Pi<br><a href="http://atceiling.blogspot.com/2014/02/raspberry-pi-wiringpi-gpio.html" target="_blank" rel="noopener">http://atceiling.blogspot.com/2014/02/raspberry-pi-wiringpi-gpio.html</a></p>
+<p>On python</p>
+<ul>
+    <li>GPIO Zero library ::gpiozero ::https://gpiozero.readthedocs.io/en/stable/</li>
+    <li>RPi.GPIO::https://pypi.org/project/RPi.GPIO/</li>
+    <li>WiringPi-Python-----Unofficial Python-Wrap</li>
+    <li>RPIO</li>
+    <li>pigpio</li>
+</ul>
+Other Lang: https://elinux.org/RPi_GPIO_Code_Samples
+
+<p>pinout: <a href="https://pinout.xyz/pinout/pin8_gpio14" target="_blank" rel="noopener">https://pinout.xyz/pinout/pin8_gpio14</a><br>It seems have a little messy on the pin arrangement on the Pi</p>
+<pre>root@raspberrypi:/sys/class/gpio# pinout
+,--------------------------------.
+| oooooooooooooooooooo J8     +====
+| 1ooooooooooooooooooo        | USB
+|                             +====
+|      Pi Model 3B V1.2          |
+|      +----+                 +====
+| |D|  |SoC |                 | USB
+| |S|  |    |                 +====
+| |I|  +----+                    |
+|                   |C|     +======
+|                   |S|     |   Net
+| pwr        |HDMI| |I||A|  +======
+`-| |--------|    |----|V|-------'
+
+Revision           : a02082
+SoC                : BCM2837
+RAM                : 1024Mb
+Storage            : MicroSD
+USB ports          : 4 (excluding power)
+Ethernet ports     : 1
+Wi-fi              : True
+Bluetooth          : True
+Camera ports (CSI) : 1
+Display ports (DSI): 1
+
+J8:
+   3V3  (1) (2)  5V
+ GPIO2  (3) (4)  5V
+ GPIO3  (5) (6)  GND
+ GPIO4  (7) (8)  GPIO14
+   GND  (9) (10) GPIO15
+GPIO17 (11) (12) GPIO18
+GPIO27 (13) (14) GND
+GPIO22 (15) (16) GPIO23
+   3V3 (17) (18) GPIO24
+GPIO10 (19) (20) GND
+ GPIO9 (21) (22) GPIO25
+GPIO11 (23) (24) GPIO8
+   GND (25) (26) GPIO7
+ GPIO0 (27) (28) GPIO1
+ GPIO5 (29) (30) GND
+ GPIO6 (31) (32) GPIO12
+GPIO13 (33) (34) GND
+GPIO19 (35) (36) GPIO16
+GPIO26 (37) (38) GPIO20
+   GND (39) (40) GPIO21
+
+For further information, please refer to https://pinout.xyz/
+</pre>
+<p>Comparision on the speed of the GPIO on different lang<br><a href="http://codeandlife.com/2012/07/03/benchmarking-raspberry-pi-gpio-speed/" target="_blank" rel="noopener">http://codeandlife.com/2012/07/03/benchmarking-raspberry-pi-gpio-speed/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/rpi-skills/" data-id="ck4a2484l0028ugwpbzei2b59" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-pi/" rel="tag">Raspberry pi</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ESP-Link" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/ESP-Link/" class="article-date">
+  <time datetime="2019-12-17T15:22:02.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/ESP-Link/">ESP8266:ESP-Link</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Migrate from <a href="https://cmakerhk.wordpress.com/2018/10/05/esp8266-esp-link/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/2018/10/05/esp8266-esp-link/</a></p>
+<hr>
+<p><a href="https://github.com/jeelabs/esp-link" target="_blank" rel="noopener">https://github.com/jeelabs/esp-link</a><br>—&gt; This is the github file</p>
+<p>The real image is hidden (I don’t know why ) in Flashing.md and under “Initial serial flashing”<br>the release: <a href="https://github.com/jeelabs/esp-link/releases" target="_blank" rel="noopener">https://github.com/jeelabs/esp-link/releases</a></p>
+<p>The link above is the real image… and flash it with the nodeMCU flasher</p>
+<p>If you don’t know the relationship between the nodeMCU and ESP8266 you can refer to my previous article. :<a href="https://cmakerhk.wordpress.com/category/hardware/esp/" target="_blank" rel="noopener">https://cmakerhk.wordpress.com/category/hardware/esp/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/17/ESP-Link/" data-id="ck4a2483d0003ugwpb5ez5dhb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ESP-Link/" rel="tag">ESP-Link</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ESP8266/" rel="tag">ESP8266</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Experience/">Experience</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/list/">list</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/porject-log/">porject-log</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tutorial/">tutorial</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AT-Command/" rel="tag">AT Command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AVR/" rel="tag">AVR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoML/" rel="tag">AutoML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bus-Pirate/" rel="tag">Bus Pirate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud/" rel="tag">Cloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DEVCON/" rel="tag">DEVCON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESP-Link/" rel="tag">ESP-Link</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESP32/" rel="tag">ESP32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESP8266/" rel="tag">ESP8266</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPRS-A9-Module/" rel="tag">GPRS A9 Module</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maixpy/" rel="tag">Maixpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QR-Code/" rel="tag">QR Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDP/" rel="tag">RDP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST-API/" rel="tag">REST API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-pi/" rel="tag">Raspberry pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPI/" rel="tag">SPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sipeed/" rel="tag">Sipeed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Synergy/" rel="tag">Synergy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP-IP/" rel="tag">TCP/IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Telegram/" rel="tag">Telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Timer/" rel="tag">Timer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/" rel="tag">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wi-Fi/" rel="tag">Wi-Fi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/" rel="tag">code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/connector/" rel="tag">connector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delay/" rel="tag">delay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firmata/" rel="tag">firmata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/install/" rel="tag">install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mesh/" rel="tag">mesh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/" rel="tag">tutorial</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uPython/" rel="tag">uPython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AT-Command/" style="font-size: 10px;">AT Command</a> <a href="/tags/AVR/" style="font-size: 15px;">AVR</a> <a href="/tags/Arduino/" style="font-size: 17.5px;">Arduino</a> <a href="/tags/AutoML/" style="font-size: 10px;">AutoML</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Bus-Pirate/" style="font-size: 10px;">Bus Pirate</a> <a href="/tags/C-C/" style="font-size: 20px;">C/C++</a> <a href="/tags/Cloud/" style="font-size: 10px;">Cloud</a> <a href="/tags/DEVCON/" style="font-size: 10px;">DEVCON</a> <a href="/tags/ESP-Link/" style="font-size: 10px;">ESP-Link</a> <a href="/tags/ESP32/" style="font-size: 10px;">ESP32</a> <a href="/tags/ESP8266/" style="font-size: 15px;">ESP8266</a> <a href="/tags/GPRS-A9-Module/" style="font-size: 10px;">GPRS A9 Module</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Maixpy/" style="font-size: 10px;">Maixpy</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/QR-Code/" style="font-size: 10px;">QR Code</a> <a href="/tags/RDP/" style="font-size: 10px;">RDP</a> <a href="/tags/REST-API/" style="font-size: 10px;">REST API</a> <a href="/tags/Raspberry-pi/" style="font-size: 15px;">Raspberry pi</a> <a href="/tags/SPI/" style="font-size: 12.5px;">SPI</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Sipeed/" style="font-size: 10px;">Sipeed</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Synergy/" style="font-size: 10px;">Synergy</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Telegram/" style="font-size: 10px;">Telegram</a> <a href="/tags/Timer/" style="font-size: 10px;">Timer</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Wi-Fi/" style="font-size: 12.5px;">Wi-Fi</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/connector/" style="font-size: 10px;">connector</a> <a href="/tags/delay/" style="font-size: 10px;">delay</a> <a href="/tags/firmata/" style="font-size: 10px;">firmata</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/install/" style="font-size: 10px;">install</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 15px;">list</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mesh/" style="font-size: 10px;">mesh</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tutorial/" style="font-size: 10px;">tutorial</a> <a href="/tags/uPython/" style="font-size: 10px;">uPython</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/17/clang-markdown/">clang-markdown</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/17/wsl-note/">wsl-note</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/17/gprs-a9-log/">gprs-a9-log</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/17/google-cloud-compare/">google-cloud-compare</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/17/maxpy-getting-start/">Getting Started on Sipeed MAIX M1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
